@@ -1,6 +1,6 @@
-# Cliste Systems Website
+# HELLOCARA-WEBSITE
 
-Next.js 16 marketing site for **Cliste Systems**, AI Voice Engineers (Ireland). Converted from aura.build HTML to a modern stack with best-in-class SEO.
+Next.js 16 marketing site for **HelloCara**, the AI voice receptionist for Irish businesses, built by Cliste Systems.
 
 ## Stack
 

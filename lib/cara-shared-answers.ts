@@ -1,5 +1,8 @@
 /** Locked product facts for FAQs. Overlapping answers must use these strings. */
 
+export const CARA_ANSWER_ANSWERING_MACHINE =
+  "No. An answering machine records a message for you to deal with later. Cara has a two-way conversation: answers questions using your hours, prices, services, and rules, asks follow-up questions, and gathers the details for callbacks, quotes, or collection requests. Anything your team needs to act on goes into Action Inbox, with a text notification. Routine questions can be answered on the call. Your team still confirms requests that need approval, and Cara asks you when it doesn't know.";
+
 export const CARA_ANSWER_NUMBER =
   "Keep the number customers already use. Same phone. Nothing to install. Missed, busy, and closed calls forward to Cara. A new Cara number is optional.";
 

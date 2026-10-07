@@ -1,4 +1,5 @@
 import {
+  CARA_ANSWER_ANSWERING_MACHINE,
   CARA_ANSWER_CLOSED,
   CARA_ANSWER_CLOSED_SHOP,
   CARA_ANSWER_DISCLOSURE,
@@ -17,6 +18,10 @@ export type RetailFaqItem = {
 
 /** Shop FAQs for /retail */
 export const RETAIL_FAQS: readonly RetailFaqItem[] = [
+  {
+    question: "Is Cara just an answering machine?",
+    answer: CARA_ANSWER_ANSWERING_MACHINE,
+  },
   {
     question: "How much does it cost?",
     answer:
@@ -78,6 +83,10 @@ export const RETAIL_FAQS: readonly RetailFaqItem[] = [
 
 /** Homepage FAQ: general on-call questions */
 export const RETAIL_FAQS_HOMEPAGE: readonly RetailFaqItem[] = [
+  {
+    question: "Is Cara just an answering machine?",
+    answer: CARA_ANSWER_ANSWERING_MACHINE,
+  },
   {
     question: "Can Cara handle multiple calls at once?",
     answer: CARA_ANSWER_SEVERAL_CALLERS,

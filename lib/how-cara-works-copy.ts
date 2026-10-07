@@ -1,4 +1,5 @@
 import {
+  CARA_ANSWER_ANSWERING_MACHINE,
   CARA_ANSWER_CLOSED,
   CARA_ANSWER_DISCLOSURE,
   CARA_ANSWER_DOESNT_KNOW,
@@ -18,7 +19,7 @@ export const HOW_CARA_WORKS_HERO = {
   eyebrow: "How Cara works",
   titleDark: "Not a phone system.",
   titleGradient: "Cara answers it.",
-  intro: "Customers call your number. Cara steps in when nobody can get to it.",
+  intro: "Customers call your number. Cara steps in when nobody can get to it, answers their questions, and gathers the details for anything your team needs to follow up.",
   primaryCta: "Contact us",
   secondaryCta: "See how it works",
 } as const;
@@ -61,6 +62,10 @@ export const HOW_CARA_WORKS_FAQ_INTRO = {
 } as const;
 
 export const HOW_CARA_WORKS_FAQS = [
+  {
+    question: "Is Cara just an answering machine?",
+    answer: CARA_ANSWER_ANSWERING_MACHINE,
+  },
   {
     question: "How does Cara know about my business?",
     answer: `You tell Cara. Hours, what you do, what you don't. That's all Cara has. Cara doesn't look it up. ${CARA_ANSWER_DOESNT_KNOW}`,

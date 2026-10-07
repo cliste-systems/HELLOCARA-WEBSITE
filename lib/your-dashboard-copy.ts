@@ -86,6 +86,11 @@ export const YOUR_DASHBOARD_FAQ_INTRO = {
 
 export const YOUR_DASHBOARD_FAQS = [
   {
+    question: "Do I still have to deal with every call myself?",
+    answer:
+      "No. Cara can answer routine questions on the call using the information you've approved. When a caller needs a callback, a quote, or an order held, Cara gathers the details and puts the request in Action Inbox, with a text notification. You follow up on the requests that need you, with a summary and transcript for context.",
+  },
+  {
     question: "Do I need a computer?",
     answer: CARA_ANSWER_DASHBOARD_ACCESS,
   },
