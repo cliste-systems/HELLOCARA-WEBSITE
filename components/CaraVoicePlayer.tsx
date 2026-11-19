@@ -134,7 +134,7 @@ export function CaraVoicePlayer({ compact = false }: { compact?: boolean }) {
               height: `${h}%`,
               backgroundColor: played
                 ? "rgb(52 211 153)"
-                : "rgba(15, 23, 42, 0.12)",
+                : "rgba(21, 21, 21, 0.12)",
             }}
           />
         );
@@ -163,8 +163,8 @@ export function CaraVoicePlayer({ compact = false }: { compact?: boolean }) {
         aria-label={isPlaying ? "Pause Cara sample" : "Play Cara sample"}
         className={
           compact
-            ? "flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-slate-600 text-white shadow-md transition-transform hover:bg-slate-500 active:scale-95"
-            : "flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-slate-600 text-white shadow-md transition-transform hover:bg-slate-500 active:scale-95 sm:h-16 sm:w-16"
+            ? "flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-action text-white shadow-md transition-transform hover:bg-brand-action-hover active:scale-95"
+            : "flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-action text-white shadow-md transition-transform hover:bg-brand-action-hover active:scale-95 sm:h-16 sm:w-16"
         }
       >
         {isPlaying ? (

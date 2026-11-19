@@ -28,7 +28,7 @@ export function Dashboard() {
     <section
       id="dashboard"
       aria-labelledby="dashboard-heading"
-      className="relative w-full overflow-hidden bg-[#f5f6f8]"
+      className="relative w-full overflow-hidden bg-[#f3f3f3]"
     >
       <div className="relative mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:px-8 lg:py-28">
         {/* Top: copy */}
@@ -57,7 +57,7 @@ export function Dashboard() {
                 <li key={title} className="flex items-start gap-4">
                   <span
                     aria-hidden
-                    className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-[0_1px_0_rgba(15,23,42,0.04)]"
+                    className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-[0_1px_0_rgba(21,21,21,0.04)]"
                   >
                     <Icon className="size-[18px]" strokeWidth={1.75} />
                   </span>
@@ -86,7 +86,7 @@ export function Dashboard() {
 
 function ClisteStudioDashboard() {
   return (
-    <div className="w-full overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_40px_120px_rgba(15,23,42,0.12)]">
+    <div className="w-full overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_40px_120px_rgba(21,21,21,0.12)]">
       <div className="flex min-h-[620px] text-slate-900">
         {/* Sidebar */}
         <aside className="hidden w-[220px] border-r border-slate-100 bg-white p-6 sm:block">
@@ -140,7 +140,7 @@ function ClisteStudioDashboard() {
         </aside>
 
         {/* Main */}
-        <main className="flex-1 bg-[#fbfcfe] p-6 sm:p-10">
+        <main className="flex-1 bg-[#fafafa] p-6 sm:p-10">
           <div className="mb-10 flex flex-col items-start justify-between gap-4 md:flex-row md:items-start">
             <div>
               <h3 className="font-display text-[28px] font-semibold tracking-tight text-slate-950 sm:text-[34px]">

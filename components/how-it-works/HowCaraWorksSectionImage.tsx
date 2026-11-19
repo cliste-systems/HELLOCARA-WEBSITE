@@ -31,7 +31,7 @@ export function HowCaraWorksSectionImage({
     >
       {failed ? (
         <div
-          className="absolute inset-0 bg-gradient-to-br from-slate-100 via-[#eef0f3] to-slate-200"
+          className="absolute inset-0 bg-gradient-to-br from-slate-100 via-[#ededed] to-slate-200"
           aria-hidden
         />
       ) : (

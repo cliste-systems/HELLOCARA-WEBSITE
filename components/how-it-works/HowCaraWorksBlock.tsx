@@ -40,7 +40,7 @@ export function HowCaraWorksBlock({
       aria-labelledby={headingId}
       className={cn(
         "relative w-full scroll-mt-24 text-slate-900",
-        tone === "grey" ? "bg-[#F8F9FB]" : "bg-white",
+        tone === "grey" ? "bg-[#f7f7f7]" : "bg-white",
       )}
     >
       <div className={`relative min-w-0 ${RETAIL_SECTION_FRAME}`}>
@@ -55,7 +55,7 @@ export function HowCaraWorksBlock({
               src={imageSrc}
               alt={imageAlt}
               aspectClass={imageAspectClass}
-              className={tone === "grey" ? "bg-[#F8F9FB]" : "bg-white"}
+              className={tone === "grey" ? "bg-[#f7f7f7]" : "bg-white"}
             />
           </div>
 

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import {
-  HERO_CARD_GRADIENT,
   HERO_NICHE_CARD_CLASS,
   HERO_NICHE_CARD_INNER_CLASS,
   HERO_NICHE_DIVIDER_CLASS,
@@ -152,13 +151,14 @@ function PartnerLogos() {
 export function Hero() {
   return (
     <div
-      className="min-h-0 bg-[#F8F9FB] text-neutral-900 antialiased selection:bg-indigo-200 selection:text-neutral-900 lg:bg-white"
+      className="min-h-0 bg-white text-neutral-900 antialiased selection:bg-neutral-300 selection:text-neutral-900"
     >
+
       <div
         className={cn(
           HERO_VIEWPORT_SHELL_CLASS,
           HERO_PAGE_FRAME_INNER_CLASS,
-          "lg:mx-auto lg:max-w-[1920px] lg:min-h-0 lg:bg-white lg:p-6 lg:pt-8 lg:pb-0",
+          "bg-white lg:mx-auto lg:max-w-[1920px] lg:min-h-0 lg:bg-white lg:p-6 lg:pt-8 lg:pb-0",
         )}
       >
         <div
@@ -166,16 +166,15 @@ export function Hero() {
             HERO_NICHE_CARD_CLASS,
             "shadow-sm ring-black/[0.06] lg:min-h-[calc(100svh-12rem)] lg:max-h-[820px] lg:flex-none lg:rounded-[3.5rem]",
           )}
-          style={{ background: HERO_CARD_GRADIENT }}
+          style={{ background: "linear-gradient(115deg, #222222 0%, #292929 48%, #393939 75%, #626262 100%)" }}
         >
-            {/* Animated ColorBends: confined to the right pink area.
-                Linear mask so left side stays original cream/white. */}
+            {/* Neutral silver movement stays on the right; the copy retains a dark backdrop. */}
             <div
               aria-hidden
               className="hero-bg-wipe pointer-events-none absolute inset-0"
             >
               <ColorBends
-                colors={["#e8eaee", "#cfd3da", "#8a8f99", "#3f4451", "#1c1f26"]}
+                colors={["#f2f2f2", "#d5d5d5", "#929292", "#626262", "#292929"]}
                 rotation={110}
                 speed={0.18}
                 scale={1.15}
@@ -188,12 +187,27 @@ export function Hero() {
                 mouseInfluence={0.25}
                 parallax={0.2}
                 transparent
-                className="opacity-[0.68] mix-blend-soft-light sm:opacity-80 lg:opacity-90"
+                className="opacity-50 lg:opacity-75"
               />
             </div>
 
             {/* Desktop-only mask override: let the animation breathe wider on lg+ */}
-            <style jsx>{`
+            <style jsx global>{`
+        .charcoal-hero-header a[aria-label="HelloCara home"] img { filter: brightness(0) invert(1); }
+        .charcoal-hero-header > div > button { background: rgb(255 255 255 / .1); }
+        .charcoal-hero-header > div > button span,
+        .charcoal-hero-header > div > button svg,
+        .charcoal-hero-header > button,
+        .charcoal-hero-header nav > a,
+        .charcoal-hero-header nav > div > button,
+        .charcoal-hero-header nav > div > button svg { color: #fff; }
+        .charcoal-hero-header nav > a { background: transparent; }
+        .charcoal-hero-header nav > a:hover,
+        .charcoal-hero-header nav > div > button:hover,
+        .charcoal-hero-header nav > div > button[data-open="true"] { background: rgb(255 255 255 / .14); color: white; }
+        .charcoal-hero-header nav > a:last-child { background: #fff; color: #292929; }
+        .charcoal-hero-header nav > a:last-child:hover { background: #e5e5e5; }
+      
               @media (min-width: 1024px) {
                 .hero-bg-wipe {
                   -webkit-mask-image: linear-gradient(
@@ -233,6 +247,11 @@ export function Hero() {
               />
             </div>
 
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0"
+              style={{ background: "linear-gradient(90deg, rgba(34,34,34,0.9) 0%, rgba(34,34,34,0.6) 56%, transparent 100%)" }}
+            />
             <svg
               className="pointer-events-none absolute inset-0 z-[1] h-full w-full"
               xmlns="http://www.w3.org/2000/svg"
@@ -250,8 +269,8 @@ export function Hero() {
                   <path
                     d="M 128 124 L 128 132 M 124 128 L 132 128"
                     fill="none"
-                    stroke="black"
-                    strokeOpacity="0.1"
+                    stroke="white"
+                    strokeOpacity="0.08"
                     strokeWidth="1.5"
                   />
                 </pattern>
@@ -265,16 +284,16 @@ export function Hero() {
                 "relative z-[2] lg:min-h-[calc(100svh-12rem)] lg:max-h-[820px]",
               )}
             >
-              <SiteHeader animated homeScroll surface="hero" />
+              <SiteHeader animated homeScroll surface="hero" className="charcoal-hero-header" />
 
               <div className="z-10 mt-16 flex max-w-5xl flex-col sm:mt-28 lg:mb-auto lg:mt-auto lg:flex-none">
                 <h1
                   id="hero-heading"
-                  className="hero-fade hero-fade-d3 font-display text-[2.35rem] font-semibold leading-[1.12] tracking-tight text-balance bg-clip-text text-transparent bg-gradient-to-br from-slate-950 via-slate-600 to-slate-300 sm:text-5xl lg:text-[7.5rem] lg:leading-[1.05] lg:pb-1.5"
+                  className="hero-fade hero-fade-d3 font-display text-[2.35rem] font-semibold leading-[1.12] tracking-tight text-balance text-white sm:text-5xl lg:text-[7.5rem] lg:leading-[1.05] lg:pb-1.5"
                 >
-                  Your phone, always answered.
+                  Your phone,{" "}<span className="bg-gradient-to-r from-white to-[#b8b8b8] bg-clip-text text-transparent">always answered.</span>
                 </h1>
-                <p className="hero-fade hero-fade-d4 mt-6 max-w-3xl text-base leading-relaxed text-neutral-800 lg:mt-8 lg:text-3xl lg:font-normal lg:leading-snug lg:tracking-tight">
+                <p className="hero-fade hero-fade-d4 mt-6 max-w-3xl text-base leading-relaxed text-[#e5e5e5] lg:mt-8 lg:text-3xl lg:font-normal lg:leading-snug lg:tracking-tight">
                   HelloCara answers your business phone when you can&apos;t.
                   Cara talks with callers, answers their questions, and gathers
                   the details your team needs to follow up.
@@ -282,14 +301,14 @@ export function Hero() {
                 <div className="hero-fade hero-fade-d5 mt-6 flex w-full flex-col gap-2.5 sm:mt-12 sm:w-auto sm:flex-row sm:justify-start sm:gap-4 lg:mt-8">
                   <Link
                     href="/book"
-                    className="flex w-full cursor-pointer items-center justify-center rounded-full bg-slate-600 px-7 py-3 text-base font-normal text-white transition-colors hover:bg-slate-500 sm:w-auto"
+                    className="flex w-full cursor-pointer items-center justify-center rounded-full bg-white px-7 py-3 text-base font-normal text-[#292929] transition-colors hover:bg-neutral-200 sm:w-auto"
                   >
                     Contact us
                   </Link>
                   <button
                     type="button"
                     onClick={() => scrollToSection("cara")}
-                    className="flex w-full cursor-pointer items-center justify-center rounded-full bg-slate-500/10 px-7 py-3 text-base font-normal text-slate-900 transition-colors hover:bg-slate-500/15 sm:w-auto"
+                    className="flex w-full cursor-pointer items-center justify-center rounded-full border border-white/40 bg-black/15 px-7 py-3 text-base font-normal text-white transition-colors hover:bg-white/15 sm:w-auto"
                   >
                     Hear it work
                   </button>
@@ -299,7 +318,7 @@ export function Hero() {
         </div>
 
         <div className={HERO_NICHE_DIVIDER_CLASS} aria-hidden>
-          <div className="h-px min-h-px bg-slate-200" />
+          <div className="h-px min-h-px bg-neutral-200" />
         </div>
 
         {/* Partner strip: desktop only so mobile hero fills the viewport */}

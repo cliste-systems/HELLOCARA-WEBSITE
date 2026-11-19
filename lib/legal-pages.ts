@@ -7,4 +7,4 @@ export const PUBLIC_LEGAL_PAGES = [
   { href: "/legal/cookies", label: "Cookies" },
 ] as const;
 
-export const LEGAL_LAST_UPDATED = "12 June 2026";
+export const LEGAL_LAST_UPDATED = "28 September 2026";

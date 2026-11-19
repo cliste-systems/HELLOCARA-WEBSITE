@@ -42,8 +42,8 @@ export function SectionReveal({
       typeof window !== "undefined" &&
       window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
     ) {
-      setRevealed(true);
-      return;
+      const raf = requestAnimationFrame(() => setRevealed(true));
+      return () => cancelAnimationFrame(raf);
     }
 
     let done = false;

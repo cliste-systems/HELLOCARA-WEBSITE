@@ -3,11 +3,11 @@
  * underlay so Cara’s panel matches the top-of-page brand instead of flat black.
  */
 export const HERO_CARD_GRADIENT =
-  "linear-gradient(128deg, #fcfcfd 0%, #f5f6f8 16%, #e8eaee 32%, #cfd3da 50%, #8a8f99 72%, #3f4451 88%, #1c1f26 100%)" as const;
+  "linear-gradient(128deg, #fcfcfc 0%, #f3f3f3 16%, #e8e8e8 32%, #d5d5d5 50%, #929292 72%, #626262 88%, #292929 100%)" as const;
 
 /** Light card shell for niche landing pages (retail, verticals, etc.) */
 export const NICHE_HERO_GRADIENT =
-  "linear-gradient(145deg, #fcfcfd 0%, #f7f8fa 24%, #eef1f5 52%, #e6eaef 82%, #dfe4eb 100%)" as const;
+  "linear-gradient(145deg, #fcfcfc 0%, #f7f7f7 24%, #eeeeee 52%, #e8e8e8 82%, #dedede 100%)" as const;
 
 export const NICHE_PAGE_SHELL_CLASS =
   "mx-auto w-full max-w-[1920px] p-4 sm:p-6 lg:p-8" as const;
@@ -22,7 +22,7 @@ export const NICHE_PAGE_FRAME_CLASS =
 
 /** Full-viewport hero shell: grey pad around card; no forced height on mobile */
 export const HERO_VIEWPORT_SHELL_CLASS =
-  "bg-[#F8F9FB] flex flex-col lg:min-h-[100svh]" as const;
+  "bg-[#f7f7f7] flex flex-col lg:min-h-[100svh]" as const;
 
 /** Inner frame under the viewport shell: card grows on mobile */
 export const HERO_PAGE_FRAME_INNER_CLASS =
@@ -30,7 +30,7 @@ export const HERO_PAGE_FRAME_INNER_CLASS =
 
 /** Rounded hero card: inset on mobile; grows with content up to viewport cap */
 export const HERO_NICHE_CARD_CLASS =
-  "hero-bg-reveal relative flex w-full max-h-[calc(100svh-2rem)] flex-col overflow-hidden rounded-[1.5rem] shadow-[0_1px_0_rgba(15,23,42,0.04)] ring-1 ring-slate-200/80 sm:max-h-[calc(100svh-3rem)] sm:rounded-[2rem] lg:min-h-0 lg:max-h-none lg:flex-1 lg:rounded-[2.5rem]" as const;
+  "hero-bg-reveal relative flex w-full max-h-[calc(100svh-2rem)] flex-col overflow-hidden rounded-[1.5rem] shadow-[0_1px_0_rgba(21,21,21,0.04)] ring-1 ring-slate-200/80 sm:max-h-[calc(100svh-3rem)] sm:rounded-[2rem] lg:min-h-0 lg:max-h-none lg:flex-1 lg:rounded-[2.5rem]" as const;
 
 export const HERO_NICHE_CARD_INNER_CLASS =
   "relative z-10 flex flex-col px-6 py-6 sm:px-10 sm:py-8 lg:min-h-0 lg:flex-1 lg:px-20 lg:py-14" as const;
@@ -92,7 +92,7 @@ export const RETAIL_SECTION_INTRO_TITLE =
   "font-display text-3xl font-semibold leading-[1.18] tracking-tight text-balance sm:text-4xl" as const;
 
 export const RETAIL_SECTION_SHELL =
-  "overflow-hidden rounded-[1.5rem] bg-white shadow-[0_1px_0_rgba(15,23,42,0.04),0_20px_60px_-30px_rgba(15,23,42,0.12)] ring-1 ring-slate-200/80 lg:rounded-[2rem]" as const;
+  "overflow-hidden rounded-[1.5rem] bg-white shadow-[0_1px_0_rgba(21,21,21,0.04),0_20px_60px_-30px_rgba(21,21,21,0.12)] ring-1 ring-slate-200/80 lg:rounded-[2rem]" as const;
 
 export const RETAIL_ROW_DIVIDER =
   "mx-4 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent sm:mx-6 lg:mx-8" as const;

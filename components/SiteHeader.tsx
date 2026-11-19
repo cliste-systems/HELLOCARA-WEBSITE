@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
-import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { ArrowUpRight, AudioLines, ChevronDown, ChevronRight, LayoutDashboard, Menu, Phone, Play, ShieldCheck, Store, X } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   CARA_NAV,
   HOW_CARA_IS_BUILT_LINK,
@@ -14,10 +15,12 @@ import {
   type HeaderNavMenu,
 } from "@/lib/industries";
 import { scrollToSectionAfterMenuClose } from "@/lib/scroll-to-section";
+import { APP_SIGNUP_URL } from "@/lib/site-auth";
 import { LoginLink } from "./LoginLink";
 import { ClisteLogo } from "./ClisteLogo";
 
 type SiteHeaderProps = {
+  showAccountActions?: boolean;
   /** Hero entrance fades (homepage only). */
   animated?: boolean;
   /** Smooth-scroll to #cara on Hear it work (homepage mobile menu). */
@@ -85,7 +88,7 @@ function HeaderDropdown({
 
   const menuItemClassName =
     surface === "hero"
-      ? "group/item flex items-center justify-between gap-3 rounded-full border border-white/60 bg-white/70 px-4 py-2.5 text-sm font-medium text-slate-900 shadow-[0_8px_28px_-14px_rgba(15,23,42,0.22)] backdrop-blur-md transition-all hover:border-white/80 hover:bg-white/90 hover:shadow-[0_12px_32px_-14px_rgba(15,23,42,0.26)]"
+      ? "group/item flex items-center justify-between gap-3 rounded-full border border-white/60 bg-white/70 px-4 py-2.5 text-sm font-medium text-slate-900 shadow-[0_8px_28px_-14px_rgba(21,21,21,0.22)] backdrop-blur-md transition-all hover:border-white/80 hover:bg-white/90 hover:shadow-[0_12px_32px_-14px_rgba(21,21,21,0.26)]"
       : "group/item flex items-center justify-between gap-3 rounded-full border border-slate-200/90 bg-white px-4 py-2.5 text-sm font-medium text-slate-900 shadow-sm transition-all hover:border-slate-300/90 hover:bg-slate-50 hover:shadow-md";
 
   return (
@@ -154,30 +157,51 @@ function HeaderDropdown({
   );
 }
 
+const subscribeMounted = () => () => {};
+
 export function SiteHeader({
+  showAccountActions = true,
   animated = false,
   homeScroll = false,
   surface = animated ? "hero" : "light",
   className = "",
 }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const menuTriggerRef = useRef<HTMLButtonElement>(null);
+  const reduceMotion = useReducedMotion();
+  const mounted = useSyncExternalStore(subscribeMounted, () => true, () => false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
+    const trigger = menuTriggerRef.current;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    const focusTimer = window.setTimeout(() => menuRef.current?.querySelector<HTMLButtonElement>('button')?.focus(), 0);
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+      if (event.key !== "Tab") return;
+      const controls = menuRef.current?.querySelectorAll<HTMLElement>('a[href], button:not([disabled])');
+      if (!controls?.length) return;
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKey);
     return () => {
+      window.clearTimeout(focusTimer);
+      document.removeEventListener("keydown", handleKey);
       document.body.style.overflow = prev;
+      trigger?.focus();
     };
   }, [menuOpen]);
-
-  const hearItWorkClassName =
-    "flex w-full cursor-pointer items-center justify-center rounded-full bg-slate-500/10 px-7 py-4 text-base font-normal text-slate-900 transition-colors hover:bg-slate-500/15";
 
   const loginClassName =
     surface === "hero"
@@ -205,7 +229,7 @@ export function SiteHeader({
 
           <button
             type="button"
-            className={`${fadeClass(animated, "hero-fade-d2")} hidden min-w-0 cursor-pointer items-center gap-2 rounded-full bg-black/5 px-3.5 py-1.5 transition-colors hover:bg-black/10 lg:flex`}
+            className={`${fadeClass(animated, "hero-fade-d2")} hidden min-w-0 cursor-pointer items-center gap-2 rounded-full bg-black/5 px-3.5 py-1.5 transition-colors hover:bg-black/10 2xl:flex`}
           >
             <span className="truncate text-sm font-medium text-neutral-800">
               A Donegal-engineered startup
@@ -231,12 +255,14 @@ export function SiteHeader({
             {YOUR_DASHBOARD_LINK.label}
           </Link>
           <HeaderDropdown menu={PRODUCTS_NAV} surface={surface} />
-          <LoginLink className={loginClassName}>Log in</LoginLink>
+          {showAccountActions ? <><LoginLink className={loginClassName}>Log in</LoginLink>
+          <a href={APP_SIGNUP_URL} className="cursor-pointer rounded-full bg-[#292929] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#151515]">Sign up</a></> : null}
         </nav>
 
         <button
           type="button"
           className={`${fadeClass(animated, "hero-fade-d2")} -mr-2 z-10 cursor-pointer p-2 text-neutral-950 lg:hidden`}
+          ref={menuTriggerRef}
           aria-label="Menu"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen(true)}
@@ -250,150 +276,70 @@ export function SiteHeader({
           <AnimatePresence>
             {menuOpen && (
               <motion.div
+                ref={menuRef}
                 key="mobile-menu"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-                className="fixed inset-0 z-[100] flex min-h-0 flex-col overflow-y-auto bg-white lg:hidden"
+                initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: reduceMotion ? 0 : 8 }}
+                transition={{ duration: reduceMotion ? 0 : 0.22 }}
+                className="fixed inset-0 z-[100] overflow-y-auto overscroll-contain bg-[#fafafa] text-[#202020] lg:hidden"
                 role="dialog"
                 aria-modal="true"
-                aria-label="Menu"
+                aria-label="Explore HelloCara"
               >
-                <motion.div
-                  initial={{ opacity: 0, y: 14, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{
-                    duration: 0.5,
-                    ease: [0.22, 1, 0.36, 1],
-                    delay: 0.04,
-                  }}
-                  className="flex w-full shrink-0 items-center justify-between px-6 py-6 sm:px-10 sm:py-10"
-                >
-                  <Link
-                    href="/"
-                    className="flex cursor-pointer items-center"
-                    aria-label="HelloCara home"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    <ClisteLogo />
-                  </Link>
-                  <button
-                    type="button"
-                    className="-mr-2 cursor-pointer p-2 text-neutral-950"
-                    aria-label="Close menu"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    <X className="h-6 w-6" strokeWidth={1.5} aria-hidden />
-                  </button>
-                </motion.div>
-
-                <div
-                  className="flex w-full flex-col gap-6 px-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:gap-8 sm:px-10 sm:pb-12"
-                >
-                  <nav className="flex flex-col gap-5 text-xl font-medium tracking-tight text-neutral-900 sm:gap-6 sm:text-2xl">
-                    <motion.div
-                      initial={{ opacity: 0, y: 18, filter: "blur(6px)" }}
-                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                      transition={{
-                        duration: 0.55,
-                        ease: [0.22, 1, 0.36, 1],
-                        delay: 0.08,
-                      }}
-                      className="flex flex-col gap-4"
-                    >
-                      <p className="text-sm font-medium uppercase tracking-[0.16em] text-neutral-500">
-                        {CARA_NAV.trigger}
-                      </p>
-                      {CARA_NAV.items.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="cursor-pointer transition-colors hover:text-neutral-600"
-                          onClick={() => setMenuOpen(false)}
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                      <p className="mt-4 text-sm font-medium uppercase tracking-[0.16em] text-neutral-500">
-                        {PRODUCTS_NAV.trigger}
-                      </p>
-                      {PRODUCTS_NAV.items.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="cursor-pointer transition-colors hover:text-neutral-600"
-                          onClick={() => setMenuOpen(false)}
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 18, filter: "blur(6px)" }}
-                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                      transition={{
-                        duration: 0.55,
-                        ease: [0.22, 1, 0.36, 1],
-                        delay: 0.1,
-                      }}
-                    >
-                      <LoginLink
-                        className="cursor-pointer transition-colors hover:text-neutral-600"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        Log in
-                      </LoginLink>
-                    </motion.div>
-                  </nav>
-
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.4, ease: "easeOut", delay: 0.38 }}
-                    className="my-2 h-px w-full bg-neutral-100"
-                  />
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 14, filter: "blur(4px)" }}
-                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    transition={{
-                      duration: 0.55,
-                      ease: [0.22, 1, 0.36, 1],
-                      delay: 0.42,
-                    }}
-                    className="flex flex-col gap-4"
-                  >
-                    <Link
-                      href="/book"
-                      className="flex w-full cursor-pointer items-center justify-center rounded-full bg-slate-600 px-7 py-4 text-base font-normal text-white transition-colors hover:bg-slate-500"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      Contact us
+                <div className="mx-auto flex min-h-full w-full max-w-lg flex-col px-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-[max(1.25rem,env(safe-area-inset-top))]">
+                  <div className="mb-6 flex items-center justify-between">
+                    <Link href="/" aria-label="HelloCara home" onClick={() => setMenuOpen(false)} className="flex items-center gap-2.5">
+                      <ClisteLogo />
+                      <span className="text-xl font-semibold tracking-tight">HelloCara</span>
                     </Link>
-                    {homeScroll ? (
-                      <button
-                        type="button"
-                        onClick={() =>
-                          scrollToSectionAfterMenuClose("cara", () =>
-                            setMenuOpen(false),
-                          )
-                        }
-                        className={hearItWorkClassName}
-                      >
-                        Hear it work
-                      </button>
-                    ) : (
-                      <Link
-                        href="/#cara"
-                        className={hearItWorkClassName}
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        Hear it work
+                    <button type="button" className="flex size-11 items-center justify-center rounded-full border border-neutral-200 bg-white transition-colors hover:bg-neutral-100" aria-label="Close menu" onClick={() => setMenuOpen(false)}>
+                      <X className="size-5" strokeWidth={1.5} aria-hidden />
+                    </button>
+                  </div>
+                  <div className="mb-4 flex items-end justify-between">
+                    <h2 className="text-3xl font-medium tracking-tight">Meet your next<br />team member.</h2>
+                    <span className="pb-1 text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-500">Explore Cara</span>
+                  </div>
+                  <nav aria-label="Mobile navigation" className="grid grid-cols-2 gap-2.5">
+                    {[
+                      { ...CARA_NAV.items[0], icon: Phone, detail: "From ring to resolution" },
+                      { ...CARA_NAV.items[1], icon: ShieldCheck, detail: "The thinking behind Cara" },
+                      { ...CARA_NAV.items[2], icon: LayoutDashboard, detail: "Your calls, in one place" },
+                      { ...PRODUCTS_NAV.items[0], icon: Store, detail: "Made for your business" },
+                    ].map(({ href, label, icon: Icon, detail }) => (
+                      <Link key={href} href={href} onClick={() => setMenuOpen(false)} className="group rounded-[20px] bg-[#ededed] p-4 transition-colors hover:bg-[#e5e5e5]">
+                        <div className="mb-4 flex items-center justify-between">
+                          <span className="flex size-9 items-center justify-center rounded-xl bg-white"><Icon className="size-[18px]" strokeWidth={1.6} aria-hidden /></span>
+                          <ArrowUpRight className="size-4 text-neutral-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
+                        </div>
+                        <span className="block text-[15px] font-medium tracking-tight">{label}</span>
+                        <span className="mt-1 block text-[11px] leading-4 text-neutral-600">{detail}</span>
                       </Link>
-                    )}
-                  </motion.div>
+                    ))}
+                  </nav>
+                  <Link href="/#cara" onClick={(event) => {
+                    if (homeScroll) {
+                      event.preventDefault();
+                      scrollToSectionAfterMenuClose("cara", () => setMenuOpen(false));
+                    } else setMenuOpen(false);
+                  }} className="group relative mt-3 flex min-h-36 overflow-hidden rounded-[22px] bg-[#292929] p-5 text-white">
+                    <div className="relative z-10 flex flex-col items-start justify-between">
+                      <span className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.16em] text-neutral-300"><AudioLines className="size-3.5" aria-hidden /> The voice of Cara</span>
+                      <span className="mt-2 text-2xl font-medium tracking-tight">Hear Cara.</span>
+                      <span className="mt-3 flex items-center gap-2 rounded-full bg-white px-3 py-2 text-xs font-medium text-neutral-900"><Play className="size-3" aria-hidden /> Listen to a sample</span>
+                    </div>
+                    <span className="absolute inset-y-0 right-0 w-[42%] overflow-hidden"><Image src="/cara.png" alt="" width={220} height={250} className="h-full w-full scale-110 object-cover object-center" /></span>
+                  </Link>
+                  <div className="mt-5 border-t border-neutral-200 pt-4">
+                    {showAccountActions && <div className="grid grid-cols-2 gap-2.5">
+                      <LoginLink onClick={() => setMenuOpen(false)} className="flex min-h-12 items-center justify-center rounded-full border border-neutral-300 bg-white text-sm font-medium transition-colors hover:bg-neutral-100">Log in</LoginLink>
+                      <a href={APP_SIGNUP_URL} onClick={() => setMenuOpen(false)} className="flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#292929] text-sm font-medium text-white transition-colors hover:bg-[#151515]">Sign up <ArrowUpRight className="size-4" aria-hidden /></a>
+                    </div>}
+                    <Link href="/book" onClick={() => setMenuOpen(false)} className="mt-4 flex min-h-11 items-center justify-between px-1 text-sm text-neutral-600 hover:text-neutral-950">
+                      <span>Have a question?</span><span className="flex items-center gap-2 font-medium text-neutral-900">Contact us <ArrowUpRight className="size-4" aria-hidden /></span>
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             )}

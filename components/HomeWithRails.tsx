@@ -28,7 +28,7 @@ export function HomeWithRails() {
         <>
           {/* Hairline: overlap 1px so no body (white) shows in the subpixel seam */}
           <div
-            className={`-mt-px w-full min-w-0 bg-[#F8F9FB] ${STUDIO_HAIRLINE_INSET}`}
+            className={`-mt-px w-full min-w-0 bg-[#f7f7f7] ${STUDIO_HAIRLINE_INSET}`}
           >
             <div
               className={`relative min-w-0 ${SITE_FRAME_CLASS} px-4 sm:px-6 lg:px-8`}

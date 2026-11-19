@@ -8,7 +8,7 @@ type BlogIndexCardProps = {
 
 export function BlogIndexCard({ post }: BlogIndexCardProps) {
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_1px_0_rgba(15,23,42,0.04)] transition hover:border-slate-300">
+    <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_1px_0_rgba(21,21,21,0.04)] transition hover:border-slate-300">
       <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-slate-500">
         {formatBlogDate(post.publishedAt)}
       </p>

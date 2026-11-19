@@ -7,7 +7,7 @@ import { ClisteLogo } from "@/components/ClisteLogo";
 import { SITE_FRAME_CLASS } from "@/lib/site-layout";
 import { CLISTE_COMPANY } from "@/lib/company-details";
 import { CLISTE_TAGLINE } from "@/lib/site-copy";
-import { APP_AUTHENTICATE_URL } from "@/lib/site-auth";
+import { APP_AUTHENTICATE_URL, APP_SIGNUP_URL } from "@/lib/site-auth";
 
 const currentYear = new Date().getFullYear();
 const CONTACT_EMAIL = CLISTE_COMPANY.helloEmail;
@@ -24,6 +24,7 @@ const FOOTER_LINKS = {
   company: [
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/book" },
+    { label: "Sign up", href: APP_SIGNUP_URL, external: true },
     { label: "Log in", href: APP_AUTHENTICATE_URL, external: true },
   ],
   legal: [
@@ -79,9 +80,10 @@ function FooterLinks({
   );
 }
 
-export function Footer() {
+export function Footer({ legalPage = false }: { legalPage?: boolean }) {
   const pathname = usePathname();
   const showContactCta =
+    !legalPage &&
     pathname !== "/book" &&
     pathname !== "/" &&
     pathname !== "/retail" &&
@@ -90,7 +92,7 @@ export function Footer() {
     pathname !== "/dashboard";
 
   return (
-    <footer id="contact" className="w-full border-t border-slate-200 bg-[#F8F9FB]">
+    <footer id="contact" className="w-full border-t border-slate-200 bg-[#f7f7f7]">
       <div className={`${SITE_FRAME_CLASS} px-4 sm:px-6 lg:px-8`}>
         {showContactCta && (
           <div className="flex flex-col gap-5 border-b border-slate-200 py-10 sm:flex-row sm:items-center sm:justify-between sm:py-12">
@@ -136,7 +138,7 @@ export function Footer() {
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-10">
             <FooterLinks title="Product" links={FOOTER_LINKS.product} />
-            <FooterLinks title="Company" links={FOOTER_LINKS.company} />
+            <FooterLinks title="Company" links={legalPage ? FOOTER_LINKS.company.filter(link => link.label !== "Log in") : FOOTER_LINKS.company} />
             <FooterLinks title="Legal" links={FOOTER_LINKS.legal} />
           </div>
         </div>

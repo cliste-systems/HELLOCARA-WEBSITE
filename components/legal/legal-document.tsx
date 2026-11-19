@@ -1,5 +1,3 @@
-"use client";
-
 import type { ReactNode } from "react";
 import { LEGAL_LAST_UPDATED } from "@/lib/legal-pages";
 import { cn } from "@/lib/utils";
@@ -77,7 +75,7 @@ export function LegalTable({ headers, rows }: LegalTableProps) {
         {rows.map((cells, rowIndex) => (
           <div
             key={rowIndex}
-            className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-[0_1px_0_rgba(15,23,42,0.04)]"
+            className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-[0_1px_0_rgba(21,21,21,0.04)]"
           >
             <dl className="space-y-3">
               {headers.map((header, cellIndex) => (
@@ -103,7 +101,7 @@ export function LegalTable({ headers, rows }: LegalTableProps) {
         role="region"
         aria-label="Scrollable table"
       >
-        <div className="rounded-2xl border border-slate-200/90 bg-white shadow-[0_1px_0_rgba(15,23,42,0.04)]">
+        <div className="rounded-2xl border border-slate-200/90 bg-white shadow-[0_1px_0_rgba(21,21,21,0.04)]">
           <table className="w-full min-w-[36rem] border-collapse text-left text-sm">
             <thead>
               <tr className="border-b border-slate-200 bg-slate-50/90">

@@ -22,7 +22,7 @@ import {
 
 /** 21st.dev-style radial: soft grey at bottom → white at top */
 const RETAIL_HERO_BG = {
-  gradientFrom: "#e2e8f0",
+  gradientFrom: "#e5e5e5",
   gradientTo: "#ffffff",
   gradientPosition: "50% 110%",
   gradientSize: "120% 85%",
@@ -84,7 +84,7 @@ export function RetailHero() {
               <div className={HERO_NICHE_EYEBROW_CLASS}>
                 <span
                   aria-hidden
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-slate-200/80 bg-white text-slate-600 shadow-[0_1px_0_rgba(15,23,42,0.04)]"
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-slate-200/80 bg-white text-slate-600 shadow-[0_1px_0_rgba(21,21,21,0.04)]"
                 >
                   <Store className="h-3.5 w-3.5" strokeWidth={1.75} />
                 </span>
@@ -151,7 +151,7 @@ export function RetailHero() {
               <div className={HERO_NICHE_CTA_ROW_CLASS}>
                 <Link
                   href="/book"
-                  className="flex w-full cursor-pointer items-center justify-center rounded-full bg-slate-600 px-7 py-3 text-base font-normal text-white transition-colors hover:bg-slate-500 sm:w-auto"
+                  className="flex w-full cursor-pointer items-center justify-center rounded-full bg-brand-action px-7 py-3 text-base font-normal text-white transition-colors hover:bg-brand-action-hover sm:w-auto"
                 >
                   Contact us
                 </Link>

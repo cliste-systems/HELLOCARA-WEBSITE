@@ -22,7 +22,7 @@ export function BlogCta({
   button = DEFAULT_COPY.button,
 }: BlogCtaProps = {}) {
   return (
-    <section className="mt-14 rounded-2xl border border-slate-200 bg-[#F8F9FB] p-6 sm:p-8">
+    <section className="mt-14 rounded-2xl border border-slate-200 bg-[#f7f7f7] p-6 sm:p-8">
       <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
         <div className="max-w-xl">
           <h2 className="font-display text-2xl font-semibold tracking-tight text-slate-900">

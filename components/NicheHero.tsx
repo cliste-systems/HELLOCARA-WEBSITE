@@ -53,7 +53,7 @@ export function NicheHero({
   const desktopImage = imageSrc;
 
   return (
-    <header className="relative w-full bg-[#F8F9FB] text-slate-900">
+    <header className="relative w-full bg-[#f7f7f7] text-slate-900">
       <div
         className={`relative min-w-0 ${NICHE_PAGE_FRAME_CLASS} pb-12 sm:pb-16 lg:pb-20`}
       >
@@ -65,7 +65,7 @@ export function NicheHero({
               <div className="mb-5 flex flex-wrap items-center gap-2">
                 <span
                   aria-hidden
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-slate-200/80 bg-white text-slate-600 shadow-[0_1px_0_rgba(15,23,42,0.04)]"
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-slate-200/80 bg-white text-slate-600 shadow-[0_1px_0_rgba(21,21,21,0.04)]"
                 >
                   <Icon className="h-3.5 w-3.5" strokeWidth={1.75} />
                 </span>
@@ -121,7 +121,7 @@ export function NicheHero({
             </div>
 
             <div className="relative mt-8 sm:mt-10 lg:mt-12">
-              <div className="relative h-[13.75rem] w-full overflow-hidden rounded-[1.25rem] shadow-[0_24px_80px_-40px_rgba(15,23,42,0.28)] ring-1 ring-slate-200/90 sm:h-[15rem] sm:rounded-[1.75rem] lg:h-[20.5rem] lg:rounded-[2rem]">
+              <div className="relative h-[13.75rem] w-full overflow-hidden rounded-[1.25rem] shadow-[0_24px_80px_-40px_rgba(21,21,21,0.28)] ring-1 ring-slate-200/90 sm:h-[15rem] sm:rounded-[1.75rem] lg:h-[20.5rem] lg:rounded-[2rem]">
                 <Image
                   src={mobileImage}
                   alt={imageAlt}

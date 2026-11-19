@@ -14,7 +14,7 @@ export function HowCaraIsBuiltFaq() {
     <section
       id="questions"
       aria-labelledby="how-cara-is-built-faq-heading"
-      className="relative w-full scroll-mt-24 bg-[#F8F9FB] text-slate-900"
+      className="relative w-full scroll-mt-24 bg-[#f7f7f7] text-slate-900"
     >
       <div className={`relative min-w-0 ${RETAIL_SECTION_FRAME}`}>
         <div className="px-2 sm:px-4 lg:px-6">

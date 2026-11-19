@@ -13,8 +13,8 @@ import {
 } from "@/lib/site-layout";
 
 /** Same fold as Cara for retail section (mobile + desktop) */
-const FOLD = "#F8F9FB";
-const FOLD_RGB = "248, 249, 251";
+const FOLD = "#f7f7f7";
+const FOLD_RGB = "247, 247, 247";
 
 const PROOF = [
   { label: "Accent", value: "Irish-native" },
@@ -95,7 +95,7 @@ export function CaraDemo() {
               <div className="mb-4 flex items-center gap-2">
                 <span
                   aria-hidden
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-slate-200/80 bg-white/80 text-slate-600 shadow-[0_1px_0_rgba(15,23,42,0.04)]"
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-slate-200/80 bg-white/80 text-slate-600 shadow-[0_1px_0_rgba(21,21,21,0.04)]"
                 >
                   <Headphones className="h-3.5 w-3.5" strokeWidth={1.75} />
                 </span>
@@ -118,17 +118,17 @@ export function CaraDemo() {
 
           <div className={SECTION_CONTENT_INSET}>
           <div
-            className="relative overflow-hidden rounded-[20px] shadow-[0_24px_80px_-40px_rgba(15,23,42,0.1)] ring-1 ring-slate-900/[0.06] sm:rounded-[24px] lg:rounded-[28px]"
+            className="relative overflow-hidden rounded-[20px] shadow-[0_24px_80px_-40px_rgba(21,21,21,0.1)] ring-1 ring-slate-900/[0.06] sm:rounded-[24px] lg:rounded-[28px]"
             style={{
               background:
-                "linear-gradient(168deg, #fbf9f6 0%, #f3efe9 38%, #ebe4dc 100%)",
+                "linear-gradient(168deg, #fafafa 0%, #f3f3f3 38%, #e5e5e5 100%)",
             }}
           >
             <div className="relative grid grid-cols-1 lg:grid-cols-[1.1fr_1fr]">
               {/* Left: portrait; object-cover removes letterbox “white gaps” */}
               <div
                 className="relative aspect-[5/4] w-full max-h-[min(52vh,360px)] overflow-hidden sm:max-h-none lg:aspect-auto lg:min-h-[560px]"
-                style={{ background: "#f0e9e2" }}
+                style={{ background: "#ededed" }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -143,7 +143,7 @@ export function CaraDemo() {
                   className="absolute inset-y-0 right-0 z-[2] hidden w-40 lg:block"
                   style={{
                     background:
-                      "linear-gradient(90deg, rgba(240,233,226,0) 0%, rgba(244,238,230,0.75) 55%, rgba(248,244,238,0.98) 100%)",
+                      "linear-gradient(90deg, rgba(237,237,237,0) 0%, rgba(243,243,243,0.75) 55%, rgba(247,247,247,0.98) 100%)",
                   }}
                 />
                 <div
@@ -151,12 +151,12 @@ export function CaraDemo() {
                   className="absolute inset-x-0 bottom-0 z-[2] h-14 sm:h-28 lg:hidden"
                   style={{
                     background:
-                      "linear-gradient(180deg, rgba(240,233,226,0) 0%, rgba(247,242,235,0.97) 100%)",
+                      "linear-gradient(180deg, rgba(237,237,237,0) 0%, rgba(247,247,247,0.97) 100%)",
                   }}
                 />
 
                 {/* Voice-sample badge */}
-                <div className="absolute bottom-3 left-3 z-[3] flex items-center gap-2 rounded-full border border-slate-300/50 bg-[#fbf7f1]/90 px-2.5 py-1 text-[10px] font-medium tracking-[0.12em] uppercase text-slate-600 shadow-sm backdrop-blur-sm sm:bottom-5 sm:left-5 sm:gap-2.5 sm:px-3 sm:py-1.5 sm:text-[11px] sm:tracking-[0.14em] lg:bottom-6 lg:left-6">
+                <div className="absolute bottom-3 left-3 z-[3] flex items-center gap-2 rounded-full border border-slate-300/50 bg-[#fafafa]/90 px-2.5 py-1 text-[10px] font-medium tracking-[0.12em] uppercase text-slate-600 shadow-sm backdrop-blur-sm sm:bottom-5 sm:left-5 sm:gap-2.5 sm:px-3 sm:py-1.5 sm:text-[11px] sm:tracking-[0.14em] lg:bottom-6 lg:left-6">
                   <span
                     aria-hidden
                     className="h-1.5 w-1.5 rounded-full bg-emerald-500"
@@ -166,12 +166,12 @@ export function CaraDemo() {
               </div>
 
               {/* Right: player, same paper family, no hard white panel */}
-              <div className="relative flex min-h-0 flex-col justify-start gap-3 border-t border-slate-800/[0.06] bg-gradient-to-b from-[#f9f5ef]/95 to-[#f3ede4]/90 p-4 text-slate-900 sm:gap-6 sm:p-6 md:gap-7 md:p-8 lg:h-full lg:justify-between lg:gap-12 lg:border-t-0 lg:border-l lg:border-slate-800/[0.05] lg:from-[#faf6f0] lg:to-[#f0e9e1] lg:p-10 xl:p-12">
+              <div className="relative flex min-h-0 flex-col justify-start gap-3 border-t border-slate-800/[0.06] bg-gradient-to-b from-[#fafafa]/95 to-[#ededed]/90 p-4 text-slate-900 sm:gap-6 sm:p-6 md:gap-7 md:p-8 lg:h-full lg:justify-between lg:gap-12 lg:border-t-0 lg:border-l lg:border-slate-800/[0.05] lg:from-[#fafafa] lg:to-[#ededed] lg:p-10 xl:p-12">
                 <CaraVoicePlayer />
               </div>
             </div>
 
-            <dl className="grid grid-cols-3 gap-2 border-t border-slate-800/10 bg-[#e8e0d7]/35 px-3 py-4 sm:gap-0 sm:divide-x sm:divide-slate-800/10 sm:px-10 sm:py-7 lg:px-12">
+            <dl className="grid grid-cols-3 gap-2 border-t border-slate-800/10 bg-[#d5d5d5]/35 px-3 py-4 sm:gap-0 sm:divide-x sm:divide-slate-800/10 sm:px-10 sm:py-7 lg:px-12">
               {PROOF.map(({ label, value }, i) => (
                 <div
                   key={label}
@@ -201,7 +201,7 @@ export function CaraDemo() {
       */}
       <div
         aria-hidden
-        className="relative z-[8] h-10 w-full shrink-0 bg-gradient-to-b from-transparent to-[#F8F9FB] sm:h-6 sm:bg-[#F8F9FB]"
+        className="relative z-[8] h-10 w-full shrink-0 bg-gradient-to-b from-transparent to-[#f7f7f7] sm:h-6 sm:bg-[#f7f7f7]"
       />
     </section>
   );

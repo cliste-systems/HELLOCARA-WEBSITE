@@ -10,7 +10,7 @@ import { SITE_FRAME_CLASS } from "@/lib/site-layout";
  */
 export function PartnersMarquee() {
   return (
-    <section className="relative w-full overflow-x-hidden border-b border-slate-200 bg-[#FBFCFE] pb-6 sm:pb-8">
+    <section className="relative w-full overflow-x-hidden border-b border-slate-200 bg-[#fafafa] pb-6 sm:pb-8">
       <div className={`relative min-w-0 ${SITE_FRAME_CLASS}`}>
         <div className="relative z-10 w-full min-w-0 max-w-full">
           <MarqueeLogoScroller

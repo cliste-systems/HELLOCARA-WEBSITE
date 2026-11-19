@@ -37,7 +37,7 @@ export function Features9() {
 
       {/* Outer card: clean white shell; all atmosphere comes from each row */}
       <div className={SECTION_CONTENT_INSET}>
-        <div className="relative overflow-hidden rounded-[2rem] bg-white shadow-[0_1px_0_rgba(15,23,42,0.04),0_20px_60px_-30px_rgba(15,23,42,0.15)] ring-1 ring-slate-200/80 lg:rounded-[3rem]">
+        <div className="relative overflow-hidden rounded-[2rem] bg-white shadow-[0_1px_0_rgba(21,21,21,0.04),0_20px_60px_-30px_rgba(21,21,21,0.15)] ring-1 ring-slate-200/80 lg:rounded-[3rem]">
         <div className="relative">
           <VoiceAiRow />
 
@@ -70,7 +70,7 @@ function MediaCard({ children }: { children: ReactNode }) {
   return (
     <div
       className="relative aspect-[4/3] w-full max-w-[560px] overflow-hidden rounded-[20px] bg-slate-100"
-      style={{ boxShadow: "0 20px 40px rgba(15,23,42,0.08)" }}
+      style={{ boxShadow: "0 20px 40px rgba(21,21,21,0.08)" }}
     >
       {children}
       {/* Subtle slate overlay at the bottom */}
@@ -79,7 +79,7 @@ function MediaCard({ children }: { children: ReactNode }) {
         className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3"
         style={{
           background:
-            "linear-gradient(180deg, rgba(15,23,42,0) 0%, rgba(15,23,42,0.06) 100%)",
+            "linear-gradient(180deg, rgba(21,21,21,0) 0%, rgba(21,21,21,0.06) 100%)",
         }}
       />
     </div>
