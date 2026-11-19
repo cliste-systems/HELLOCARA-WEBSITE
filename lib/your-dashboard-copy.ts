@@ -41,9 +41,9 @@ export const YOUR_DASHBOARD_STEP_2 = {
 } as const;
 
 export const YOUR_DASHBOARD_STEP_3 = {
-  headingDark: "Nothing to listen back to.",
-  headingGradient: "It's all in writing.",
-  body: "A few lines in plain English. The full transcript underneath if you want it. Audio is discarded when the call ends. The writing is what stays.",
+  headingDark: "Read the call summary.",
+  headingGradient: "See what needs a reply.",
+  body: "Read a short summary first, then open the transcript for the details. When recording is enabled, authorised team members can play the call for up to 30 days.",
   image: {
     src: "/your-dashboard/read-the-call.png",
     alt: "Barry Nolan's call showing a plain-English summary and transcript excerpt in the dashboard.",
@@ -102,7 +102,7 @@ export const YOUR_DASHBOARD_FAQS = [
   {
     question: "Can I hear the actual call?",
     answer:
-      "No. Audio is discarded when the call ends. You get the summary and the full transcript in writing instead.",
+      "Yes, when recording is enabled and your account has access. Recordings are retained for up to 30 days.",
   },
   {
     question: "Who sees the calls?",

@@ -7,7 +7,7 @@ import { ClisteLogo } from "@/components/ClisteLogo";
 import { SITE_FRAME_CLASS } from "@/lib/site-layout";
 import { CLISTE_COMPANY } from "@/lib/company-details";
 import { CLISTE_TAGLINE } from "@/lib/site-copy";
-import { APP_AUTHENTICATE_URL, APP_SIGNUP_URL } from "@/lib/site-auth";
+import { APP_AUTHENTICATE_URL } from "@/lib/site-auth";
 
 const currentYear = new Date().getFullYear();
 const CONTACT_EMAIL = CLISTE_COMPANY.helloEmail;
@@ -24,7 +24,6 @@ const FOOTER_LINKS = {
   company: [
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/book" },
-    { label: "Sign up", href: APP_SIGNUP_URL, external: true },
     { label: "Log in", href: APP_AUTHENTICATE_URL, external: true },
   ],
   legal: [

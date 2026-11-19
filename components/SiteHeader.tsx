@@ -15,7 +15,7 @@ import {
   type HeaderNavMenu,
 } from "@/lib/industries";
 import { scrollToSectionAfterMenuClose } from "@/lib/scroll-to-section";
-import { APP_SIGNUP_URL } from "@/lib/site-auth";
+
 import { LoginLink } from "./LoginLink";
 import { ClisteLogo } from "./ClisteLogo";
 
@@ -256,7 +256,7 @@ export function SiteHeader({
           </Link>
           <HeaderDropdown menu={PRODUCTS_NAV} surface={surface} />
           {showAccountActions ? <><LoginLink className={loginClassName}>Log in</LoginLink>
-          <a href={APP_SIGNUP_URL} className="cursor-pointer rounded-full bg-[#292929] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#151515]">Sign up</a></> : null}
+          <a href="/book" className="cursor-pointer rounded-full bg-[#292929] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#151515]">Book a demo</a></> : null}
         </nav>
 
         <button
@@ -334,7 +334,7 @@ export function SiteHeader({
                   <div className="mt-5 border-t border-neutral-200 pt-4">
                     {showAccountActions && <div className="grid grid-cols-2 gap-2.5">
                       <LoginLink onClick={() => setMenuOpen(false)} className="flex min-h-12 items-center justify-center rounded-full border border-neutral-300 bg-white text-sm font-medium transition-colors hover:bg-neutral-100">Log in</LoginLink>
-                      <a href={APP_SIGNUP_URL} onClick={() => setMenuOpen(false)} className="flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#292929] text-sm font-medium text-white transition-colors hover:bg-[#151515]">Sign up <ArrowUpRight className="size-4" aria-hidden /></a>
+                      <a href="/book" onClick={() => setMenuOpen(false)} className="flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#292929] text-sm font-medium text-white transition-colors hover:bg-[#151515]">Book a demo <ArrowUpRight className="size-4" aria-hidden /></a>
                     </div>}
                     <Link href="/book" onClick={() => setMenuOpen(false)} className="mt-4 flex min-h-11 items-center justify-between px-1 text-sm text-neutral-600 hover:text-neutral-950">
                       <span>Have a question?</span><span className="flex items-center gap-2 font-medium text-neutral-900">Contact us <ArrowUpRight className="size-4" aria-hidden /></span>

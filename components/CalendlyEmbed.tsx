@@ -63,6 +63,8 @@ export function CalendlyEmbed() {
   }, []);
 
   return (
+    <>
+      <p className="p-4 text-center"><a className="underline" href={CALENDLY_URL}>Open the booking calendar directly</a></p>
     <div
       ref={containerRef}
       id="calendly-embed"
@@ -73,5 +75,6 @@ export function CalendlyEmbed() {
       }}
       aria-label="Calendly booking"
     />
+    </>
   );
 }

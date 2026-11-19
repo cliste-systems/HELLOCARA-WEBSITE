@@ -16,11 +16,6 @@ export const PARTNER_MARQUEE_LOGOS: MarqueeLogo[] = [
     gradient: { from: "#f5f6f8", via: "#94a3b8", to: "#0f172a" },
   },
   {
-    src: "https://svgl.app/library/railway.svg",
-    alt: "Railway",
-    gradient: { from: "#f1f5f9", via: "#a855f7", to: "#1c1f26" },
-  },
-  {
     src: "https://svgl.app/library/twilio.svg",
     alt: "Twilio",
     gradient: { from: "#f1f5f9", via: "#f22f46", to: "#1c1f26" },

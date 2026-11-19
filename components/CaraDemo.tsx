@@ -19,7 +19,6 @@ const FOLD_RGB = "247, 247, 247";
 const PROOF = [
   { label: "Accent", value: "Irish-native" },
   { label: "Delivery", value: "Human-sounding" },
-  { label: "Ready", value: "Live in 48 hours" },
 ] as const;
 
 export function CaraDemo() {

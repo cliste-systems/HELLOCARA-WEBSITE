@@ -62,8 +62,8 @@ export function Security() {
             EEA hosting
           </h3>
           <p className="text-sm text-slate-500">
-            Primary data in Supabase (Ireland). Dashboard on Vercel Dublin.
-            Voice worker on Railway EU West.
+            Primary data in Supabase (Frankfurt). Dashboard on Vercel Dublin.
+            Voice worker on LiveKit Cloud in Frankfurt.
           </p>
         </article>
       </div>

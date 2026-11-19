@@ -24,7 +24,7 @@ export function PartnersMarquee() {
               </>
             }
             titleId="partners-marquee-heading"
-            description="Supabase, Vercel, and Railway in the EU. Twilio for Irish lines. LiveKit for real-time voice. Cloudflare at the edge."
+            description="LiveKit Cloud hosts Cara’s voice worker. Twilio connects Irish phone lines, Supabase stores call records, and Vercel hosts the dashboard."
             logos={PARTNER_MARQUEE_LOGOS}
             speed="slow"
           />

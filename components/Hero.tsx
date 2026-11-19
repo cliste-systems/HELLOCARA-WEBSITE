@@ -103,20 +103,7 @@ function PartnerLogos() {
         </svg>
       ),
     },
-    {
-      label: "99.95% uptime",
-      icon: (
-        <svg className={iconCls} viewBox="0 0 24 24" fill="none" aria-hidden>
-          <path
-            d="M3 13l4-4 4 4 5-7 5 9"
-            stroke="currentColor"
-            strokeWidth="1.7"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
-    },
+
   ];
 
   return (

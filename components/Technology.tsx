@@ -53,7 +53,7 @@ export function Technology() {
                 className="text-emerald-600 text-xl shrink-0"
               />
               <span className="text-sm font-medium text-slate-700">
-                EU data: Supabase Ireland + Vercel Dublin
+                EU data: Supabase Frankfurt + Vercel Dublin
               </span>
             </li>
           </ul>
