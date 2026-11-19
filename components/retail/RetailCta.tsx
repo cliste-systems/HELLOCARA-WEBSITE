@@ -19,7 +19,7 @@ export function RetailCta({
   return (
     <section
       aria-labelledby={headingId}
-      className="relative w-full border-t border-slate-200 bg-[#F8F9FB] text-slate-900"
+      className="relative w-full border-t border-slate-200 bg-[#f7f7f7] text-slate-900"
     >
       <div className={`relative min-w-0 ${RETAIL_SECTION_FRAME}`}>
         <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">

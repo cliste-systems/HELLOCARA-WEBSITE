@@ -11,7 +11,7 @@ export function CustomSolutionsSection() {
   return (
     <section
       aria-labelledby="custom-solutions-heading"
-      className="relative w-full overflow-x-clip bg-[#F8F9FB] text-slate-900"
+      className="relative w-full overflow-x-clip bg-[#f7f7f7] text-slate-900"
     >
       <div
         className={`relative min-w-0 ${SITE_FRAME_CLASS} px-4 sm:px-6 lg:px-8`}

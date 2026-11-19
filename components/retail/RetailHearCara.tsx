@@ -13,7 +13,7 @@ export function RetailHearCara() {
     <section
       id="hear-cara"
       aria-labelledby="retail-hear-cara-heading"
-      className="relative w-full scroll-mt-24 bg-[#F8F9FB] text-slate-900"
+      className="relative w-full scroll-mt-24 bg-[#f7f7f7] text-slate-900"
     >
       <div className={`relative min-w-0 ${RETAIL_SECTION_FRAME}`}>
         <div className="grid grid-cols-1 items-center gap-8 px-2 sm:gap-10 sm:px-4 lg:grid-cols-2 lg:gap-12 lg:px-6">

@@ -17,7 +17,7 @@ import {
 } from "@/lib/site-layout";
 
 const HERO_BG = {
-  gradientFrom: "#e2e8f0",
+  gradientFrom: "#e5e5e5",
   gradientTo: "#ffffff",
   gradientPosition: "50% 110%",
   gradientSize: "120% 85%",
@@ -64,7 +64,7 @@ export function HowCaraWorksHero() {
               <div className={HERO_NICHE_EYEBROW_CLASS}>
                 <span
                   aria-hidden
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-slate-200/80 bg-white text-slate-600 shadow-[0_1px_0_rgba(15,23,42,0.04)]"
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-slate-200/80 bg-white text-slate-600 shadow-[0_1px_0_rgba(21,21,21,0.04)]"
                 >
                   <PhoneCall className="h-3.5 w-3.5" strokeWidth={1.75} />
                 </span>
@@ -87,13 +87,13 @@ export function HowCaraWorksHero() {
               <div className={HERO_NICHE_CTA_ROW_CLASS}>
                 <Link
                   href="/book"
-                  className="flex w-full cursor-pointer items-center justify-center rounded-full bg-slate-600 px-7 py-3 text-base font-normal text-white transition-colors hover:bg-slate-500 sm:w-auto"
+                  className="flex w-full cursor-pointer items-center justify-center rounded-full bg-brand-action px-7 py-3 text-base font-normal text-white transition-colors hover:bg-brand-action-hover sm:w-auto"
                 >
                   {HOW_CARA_WORKS_HERO.primaryCta}
                 </Link>
                 <Link
                   href="#when-someone-rings"
-                  className="group flex w-full cursor-pointer items-center justify-center rounded-full bg-slate-500/10 px-7 py-2.5 text-base font-normal text-slate-900 transition-all duration-300 hover:bg-slate-500/15 sm:w-auto sm:py-1.5 sm:pl-5 sm:pr-1.5"
+                  className="group flex w-full cursor-pointer items-center justify-center rounded-full bg-slate-500/10 px-7 py-2.5 text-base font-normal text-slate-900 transition-all duration-300 hover:bg-brand-action-hover/15 sm:w-auto sm:py-1.5 sm:pl-5 sm:pr-1.5"
                 >
                   {HOW_CARA_WORKS_HERO.secondaryCta}
                   <span className="ml-2.5 hidden h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-white transition-transform duration-300 group-hover:translate-x-0.5 sm:ml-3 sm:flex sm:h-9 sm:w-9">

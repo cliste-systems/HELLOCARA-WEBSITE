@@ -10,7 +10,7 @@ import { SITE_FRAME_CLASS } from "@/lib/site-layout";
  */
 export function PartnersMarquee() {
   return (
-    <section className="relative w-full overflow-x-hidden border-b border-slate-200 bg-[#FBFCFE] pb-6 sm:pb-8">
+    <section className="relative w-full overflow-x-hidden border-b border-slate-200 bg-[#fafafa] pb-6 sm:pb-8">
       <div className={`relative min-w-0 ${SITE_FRAME_CLASS}`}>
         <div className="relative z-10 w-full min-w-0 max-w-full">
           <MarqueeLogoScroller
@@ -24,7 +24,7 @@ export function PartnersMarquee() {
               </>
             }
             titleId="partners-marquee-heading"
-            description="Supabase, Vercel, and Railway in the EU. Twilio for Irish lines. LiveKit for real-time voice. Cloudflare at the edge."
+            description="LiveKit Cloud hosts Cara’s voice worker. Twilio connects Irish phone lines, Supabase stores call records, and Vercel hosts the dashboard."
             logos={PARTNER_MARQUEE_LOGOS}
             speed="slow"
           />

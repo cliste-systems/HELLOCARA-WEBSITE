@@ -30,7 +30,7 @@ export const RETAIL_FAQS: readonly RetailFaqItem[] = [
   {
     question: "How long until we're live, and how much of my time?",
     answer:
-      "We visit your shop, learn how it runs, then set Cara up within about a week. Nothing for your team to install.",
+      "We visit your shop, learn how it runs, and agree a launch date after checking your line and department settings. Nothing for your team to install.",
   },
   {
     question: "Does my team still pick up when they're free?",
@@ -51,7 +51,7 @@ export const RETAIL_FAQS: readonly RetailFaqItem[] = [
   },
   {
     question: "Can Cara tell callers if something is in stock?",
-    answer: `From your price lists and what you've told us. If your stock system is connected, Cara can check live on the call. ${CARA_ANSWER_DOESNT_KNOW}`,
+    answer: `Cara can explain your approved product information. For current shelf stock, she takes a request for the shop to check. ${CARA_ANSWER_DOESNT_KNOW}`,
   },
   {
     question: "What if Cara doesn't know the answer?",

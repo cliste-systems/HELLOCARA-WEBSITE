@@ -5,7 +5,7 @@ export function PlatformOverview() {
   return (
     <section
       className="relative w-full"
-      style={{ backgroundColor: "#FBFCFE" }}
+      style={{ backgroundColor: "#fafafa" }}
       aria-labelledby="features-heading"
     >
       <div className={`relative min-w-0 ${SITE_FRAME_CLASS}`}>

@@ -1,7 +1,7 @@
-/** Sub-processor list version: bump when SUB_PROCESSORS changes; triggers customer email notice. */
-export const SUB_PROCESSOR_LIST_VERSION = "2026-06-12";
+/** Sub-processor list version — bump when SUB_PROCESSORS changes; triggers customer email notice. */
+export const SUB_PROCESSOR_LIST_VERSION = "2026-09-23b";
 
-/** Sub-processor registry: update here; legal pages import this source. */
+/** Sub-processor registry — update here; legal pages import this source. */
 
 export type SubProcessorGroup = "eea-hosting" | "us-voice" | "global-services";
 
@@ -15,13 +15,13 @@ export type SubProcessor = {
   group: SubProcessorGroup;
 };
 
-/** Named vendors (required in DPA / customer annex: Art 28 GDPR, SCC Module 3). */
+/** Named vendors (required in DPA / customer annex — Art 28 GDPR, SCC Module 3). */
 export const SUB_PROCESSORS: SubProcessor[] = [
   {
     name: "Supabase (Supabase, Inc.)",
     purpose: "Database, authentication, server-side operations.",
-    data: "Business and caller data (encrypted at rest).",
-    location: "EEA: AWS eu-west-1 (Ireland). Primary data store.",
+    data: "Business and caller data (encrypted at rest), including call recordings in private Storage (30 days).",
+    location: "EEA — AWS eu-central-1 (Frankfurt). Primary data store.",
     transferMechanism: "No third-country transfer for primary database.",
     url: "https://supabase.com/privacy",
     group: "eea-hosting",
@@ -30,19 +30,21 @@ export const SUB_PROCESSORS: SubProcessor[] = [
     name: "Vercel (Vercel Inc.)",
     purpose: "Application hosting (Next.js dashboard and APIs).",
     data: "Server logs, request metadata.",
-    location: "EEA: production functions in dub1 (Dublin, Ireland).",
+    location: "EEA — production functions in dub1 (Dublin, Ireland).",
     transferMechanism:
       "Primary compute in EU; global CDN / DDoS edge may see request metadata (SCCs).",
     url: "https://vercel.com/legal/privacy-policy",
     group: "eea-hosting",
   },
   {
-    name: "Railway (Railway Corp.)",
-    purpose: "Hosting for the AI voice agent worker.",
-    data: "Server logs, call-handling metadata (not stored transcripts).",
-    location: "EEA: Railway EU West.",
-    transferMechanism: "EU hosting; SCCs available if configuration changes.",
-    url: "https://railway.app/legal/privacy",
+    name: "LiveKit Cloud (LiveKit, Inc.)",
+    purpose: "Realtime voice infrastructure and AI agent worker hosting.",
+    data: "Call audio streams, agent observability (traces/logs when enabled), call-handling metadata.",
+    location:
+      "EEA — agent compute eu-central (Frankfurt); project data region EU (Frankfurt); SIP EU endpoint.",
+    transferMechanism:
+      "EU project data region + eu-central agent hosting; inference region restriction enabled.",
+    url: "https://livekit.io/privacy",
     group: "eea-hosting",
   },
   {
@@ -65,14 +67,12 @@ export const SUB_PROCESSORS: SubProcessor[] = [
     group: "global-services",
   },
   {
-    name: "SendGrid / Twilio SendGrid",
+    name: "Resend (Resend, Inc.)",
     purpose: "Transactional email (e.g. Action Inbox, account notices).",
     data: "Recipient email, message body.",
-    location:
-      "United States (global API today). EU data residency available (EU subuser + api.eu.sendgrid.com).",
-    transferMechanism:
-      "SCCs (Module 3) under Twilio Group DPA; EU data residency available when configured.",
-    url: "https://www.twilio.com/legal/privacy",
+    location: "United States (global API).",
+    transferMechanism: "SCCs (Module 3) under Resend DPA.",
+    url: "https://resend.com/legal/privacy-policy",
     group: "global-services",
   },
   {
@@ -88,7 +88,7 @@ export const SUB_PROCESSORS: SubProcessor[] = [
     name: "LiveKit Cloud (LiveKit, Inc.)",
     purpose:
       "Real-time SIP / WebRTC, in-call speech recognition (LiveKit Agents), and voice agent runtime.",
-    data: "Audio in transit (not retained), call metadata, caller number, transient transcripts.",
+    data: "Audio in transit; call recordings (MP3, up to 30 days in Supabase Storage via egress), call metadata, caller number, transient transcripts.",
     location:
       "Inbound telephony: EU SIP (Frankfurt) via Twilio trunk. WebRTC / agent media: global routing until LiveKit protocol region pinning is enabled.",
     transferMechanism:
@@ -120,7 +120,7 @@ export const SUB_PROCESSORS: SubProcessor[] = [
     group: "us-voice",
   },
   {
-    name: "Google (Google Ireland Ltd): optional",
+    name: "Google (Google Ireland Ltd) — optional",
     purpose: "Geocoding Irish service-area addresses when a Maps API key is set.",
     data: "Address / Eircode text sent for geocoding.",
     location: "EU entity; processing may occur globally.",
@@ -131,7 +131,7 @@ export const SUB_PROCESSORS: SubProcessor[] = [
   {
     name: "Sentry (Functional Software, Inc.)",
     purpose: "Error monitoring and performance traces for the dashboard and APIs.",
-    data: "Stack traces, request metadata: no intentional caller audio or transcripts.",
+    data: "Stack traces, request metadata — no intentional caller audio or transcripts.",
     location:
       "United States (default). EU data residency available on Business plans.",
     transferMechanism:
@@ -141,24 +141,24 @@ export const SUB_PROCESSORS: SubProcessor[] = [
   },
 ];
 
-/** Category summary for public privacy pages (Art 13/14: categories of recipients). */
+/** Category summary for public privacy pages (Art 13/14 — categories of recipients). */
 export const SUB_PROCESSOR_CATEGORIES_PUBLIC = [
   {
     category: "Cloud database & authentication",
-    purpose: "Store business accounts, caller records, transcripts, and dashboard data.",
-    location: "EEA (Ireland)",
+    purpose: "Store business accounts, caller records, transcripts, call recordings, and dashboard data.",
+    location: "EEA (Frankfurt, Germany)",
     transfers: "None for primary storage.",
   },
   {
     category: "Application & worker hosting",
     purpose: "Run the dashboard, APIs, and real-time voice worker.",
-    location: "EEA (Ireland / EU West)",
+    location: "EEA (Dublin and Frankfurt)",
     transfers: "CDN edge metadata may leave EEA (SCCs).",
   },
   {
     category: "Real-time voice & speech recognition",
     purpose:
-      "Connect phone calls to the AI agent; in-call speech recognition via LiveKit Agents (audio not retained at rest).",
+      "Connect phone calls to the AI agent; in-call speech recognition via LiveKit Agents; call recording egress to Supabase Storage (30 days).",
     location: "EU SIP (Frankfurt) for inbound calls; WebRTC global until pinned",
     transfers: "None on SIP path; SCCs for unpinned WebRTC.",
   },
@@ -177,7 +177,7 @@ export const SUB_PROCESSOR_CATEGORIES_PUBLIC = [
 ] as const;
 
 export const SUB_PROCESSOR_GROUP_LABELS: Record<SubProcessorGroup, string> = {
-  "eea-hosting": "EEA hosting: primary data & compute",
-  "us-voice": "Voice AI: transient processing (US today; EU options noted)",
+  "eea-hosting": "EEA hosting — primary data & compute",
+  "us-voice": "Voice AI — transient processing (US today; EU options noted)",
   "global-services": "Payments, messaging & security",
 };

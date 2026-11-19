@@ -24,7 +24,7 @@ export function ClisteStudioSection() {
   return (
     <section
       aria-labelledby="cara-retail-heading"
-      className="relative w-full overflow-x-clip bg-[#F8F9FB] pb-0 text-slate-900"
+      className="relative w-full overflow-x-clip bg-[#f7f7f7] pb-0 text-slate-900"
     >
       <div
         className={`relative min-w-0 ${SITE_FRAME_CLASS} px-4 pt-[70px] sm:px-6 sm:pt-[80px] md:pt-[90px] lg:px-8 lg:pt-[110px]`}
@@ -34,7 +34,7 @@ export function ClisteStudioSection() {
             <div className="mb-4 flex items-center gap-2">
               <span
                 aria-hidden
-                className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-slate-200/80 bg-white/80 text-slate-600 shadow-[0_1px_0_rgba(15,23,42,0.04)]"
+                className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-slate-200/80 bg-white/80 text-slate-600 shadow-[0_1px_0_rgba(21,21,21,0.04)]"
               >
                 <Store className="h-3.5 w-3.5" strokeWidth={1.75} />
               </span>
@@ -72,7 +72,7 @@ export function ClisteStudioSection() {
         <div className={SECTION_CONTENT_INSET}>
           <Link
             href="/retail"
-            className="group relative block min-w-0 w-full cursor-pointer overflow-hidden rounded-[2rem] bg-white shadow-[0_1px_0_rgba(15,23,42,0.04),0_20px_60px_-30px_rgba(15,23,42,0.15)] ring-1 ring-slate-200/80 transition duration-500 hover:shadow-[0_24px_70px_-28px_rgba(15,23,42,0.22)] lg:rounded-[3rem]"
+            className="group relative block min-w-0 w-full cursor-pointer overflow-hidden rounded-[2rem] bg-white shadow-[0_1px_0_rgba(21,21,21,0.04),0_20px_60px_-30px_rgba(21,21,21,0.15)] ring-1 ring-slate-200/80 transition duration-500 hover:shadow-[0_24px_70px_-28px_rgba(21,21,21,0.22)] lg:rounded-[3rem]"
             aria-label="Cara for retail"
           >
             {/* Mobile: sharp full-bleed photo, no duplicate copy */}
@@ -159,7 +159,7 @@ export function ClisteStudioSection() {
         </div>
       </div>
 
-      <div className="-mt-px w-full min-w-0 bg-[#F8F9FB] pt-16 pb-2 sm:pt-20 sm:pb-3 lg:pt-24">
+      <div className="-mt-px w-full min-w-0 bg-[#f7f7f7] pt-16 pb-2 sm:pt-20 sm:pb-3 lg:pt-24">
         <div
           className={`relative min-w-0 ${SITE_FRAME_CLASS} px-4 sm:px-6 lg:px-8`}
         >

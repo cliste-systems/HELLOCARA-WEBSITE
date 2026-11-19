@@ -25,7 +25,7 @@ const COOKIES: Cookie[] = [
   },
   {
     name: "cliste_admin_gate",
-    purpose: "Extra gate for the agency admin console (HelloCara staff only).",
+    purpose: "Extra gate for the agency admin console (Hello Cara staff only).",
     category: "security",
     duration: "Up to 12 hours",
     party: "first",
@@ -33,7 +33,7 @@ const COOKIES: Cookie[] = [
   {
     name: "cliste_support_dashboard",
     purpose:
-      "Marks a support session when HelloCara staff act on behalf of a customer (banner shown in dashboard).",
+      "Marks a support session when Hello Cara staff act on behalf of a customer (banner shown in dashboard).",
     category: "security",
     duration: "Session",
     party: "first",
@@ -66,13 +66,11 @@ const CATEGORY_DESCRIPTION: Record<Cookie["category"], string> = {
 };
 
 export function CookiesDocument() {
-  const product = CLISTE_COMPANY.productName;
-
   return (
     <>
       <LegalPageHeader
         title="Cookies"
-        description={`What cookies and similar technologies we use on the ${product} dashboard, login, and marketing site: and how to manage them.`}
+        description="What cookies and similar technologies we use on the Hello Cara dashboard, login, and marketing site — and how to manage them."
       />
 
       <p className="text-[15px] leading-relaxed text-slate-700">
@@ -84,15 +82,15 @@ export function CookiesDocument() {
       <LegalSection title="Categories">
         <ul className="space-y-2 text-[15px] leading-relaxed text-slate-700">
           <li>
-            <strong className="text-slate-900">Strictly necessary</strong>:{" "}
+            <strong className="text-slate-900">Strictly necessary</strong> —{" "}
             {CATEGORY_DESCRIPTION["strictly-necessary"]}
           </li>
           <li>
-            <strong className="text-slate-900">Security</strong>:{" "}
+            <strong className="text-slate-900">Security</strong> —{" "}
             {CATEGORY_DESCRIPTION.security}
           </li>
           <li>
-            <strong className="text-slate-900">Functional</strong>:{" "}
+            <strong className="text-slate-900">Functional</strong> —{" "}
             {CATEGORY_DESCRIPTION.functional}
           </li>
         </ul>

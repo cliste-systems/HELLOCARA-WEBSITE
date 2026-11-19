@@ -10,7 +10,7 @@ export const CARA_ANSWER_NUMBER_SHOP =
   "Keep your shop number and the phones you already have. Nothing to install on the till, no extra hardware to buy. Missed, busy, and closed calls forward to Cara. A new Cara number is optional.";
 
 export const CARA_ANSWER_TRANSFER =
-  "If Cara answers on a new Cara number, Cara can put the caller through. If you keep your number and forward, Cara takes the details instead.";
+  "Cara takes the caller’s name, number and reason for calling so the right person can ring them back.";
 
 export const CARA_ANSWER_DOESNT_KNOW =
   "Cara does not guess. Cara takes the details, opens a ticket in your dashboard, you confirm, and the next caller hears it.";
@@ -28,13 +28,13 @@ export const CARA_ANSWER_DISCLOSURE =
   "Every call opens with a clear AI and recording disclosure. Cara sounds natural, with an Irish accent. Cara will not pretend to be human.";
 
 export const CARA_ANSWER_WHO_SEES =
-  "You, in the dashboard. Hosted in the EU. Not sold. You can review the transcript and summary. Audio is not kept after the call.";
+  "You, in the dashboard. Hosted in the EU. Not sold. You can review the transcript and summary. When recording is enabled, recordings are retained for up to 30 days.";
 
 export const CARA_ANSWER_WHO_SEES_RETENTION =
-  "In your dashboard, and in the EU. You can review the transcript and summary. Audio is not kept after the call. Transcripts are kept for 30 days and summaries for 13 months, then they are deleted. We do not sell your data.";
+  "In your dashboard, and in the EU. You can review the transcript and summary. When recording is enabled, recordings are retained for up to 30 days. Transcripts are kept for 30 days and summaries for 13 months, then they are deleted. We do not sell your data.";
 
 export const CARA_ANSWER_DASHBOARD_ACCESS =
-  "A web app in the browser on the computer, not on the phone. Log in with your account. Nothing to download, nothing to install. Built for a full screen.";
+  "Sign in to the dashboard from a browser on your phone or computer.";
 
 export const CARA_ANSWER_DASHBOARD_TEAM =
   "Whoever you invite. Your staff see the same calls you do. You pick who gets in and who gets the texts.";

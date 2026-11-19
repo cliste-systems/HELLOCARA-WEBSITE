@@ -79,9 +79,10 @@ function FooterLinks({
   );
 }
 
-export function Footer() {
+export function Footer({ legalPage = false }: { legalPage?: boolean }) {
   const pathname = usePathname();
   const showContactCta =
+    !legalPage &&
     pathname !== "/book" &&
     pathname !== "/" &&
     pathname !== "/retail" &&
@@ -90,7 +91,7 @@ export function Footer() {
     pathname !== "/dashboard";
 
   return (
-    <footer id="contact" className="w-full border-t border-slate-200 bg-[#F8F9FB]">
+    <footer id="contact" className="w-full border-t border-slate-200 bg-[#f7f7f7]">
       <div className={`${SITE_FRAME_CLASS} px-4 sm:px-6 lg:px-8`}>
         {showContactCta && (
           <div className="flex flex-col gap-5 border-b border-slate-200 py-10 sm:flex-row sm:items-center sm:justify-between sm:py-12">
@@ -136,7 +137,7 @@ export function Footer() {
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-10">
             <FooterLinks title="Product" links={FOOTER_LINKS.product} />
-            <FooterLinks title="Company" links={FOOTER_LINKS.company} />
+            <FooterLinks title="Company" links={legalPage ? FOOTER_LINKS.company.filter(link => link.label !== "Log in") : FOOTER_LINKS.company} />
             <FooterLinks title="Legal" links={FOOTER_LINKS.legal} />
           </div>
         </div>

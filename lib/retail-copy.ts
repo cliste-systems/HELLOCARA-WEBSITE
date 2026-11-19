@@ -41,18 +41,18 @@ export const RETAIL_BACKUP = {
 
 export const RETAIL_SHOP = {
   headingDark: "Whatever they ring about.",
-  headingGradient: "Cara routes or takes it.",
-  body: `If Cara answers on a new Cara number, Cara can put them through to the right person or counter. If you keep your shop number and forward, Cara takes the details instead. Stock, prices, opening hours, orders to hold or collect. From what you've told us, or live when connected. ${CARA_ANSWER_DOESNT_KNOW}`,
+  headingGradient: "Cara takes the details.",
+  body: `Cara answers questions using your approved shop information. For shelf stock or a collection request, Cara records what the customer needs for your team to confirm. ${CARA_ANSWER_DOESNT_KNOW}`,
   image: {
     src: "/how-cara-works/retail-on-the-call.png",
-    alt: "Cara routes callers to the right person or takes shop enquiries.",
+    alt: "Cara takes an enquiry for a shop department.",
   },
 } as const;
 
 export const RETAIL_CUSTOM = {
   headingDark: "Completely custom.",
-  headingGradient: "Cara does what you want.",
-  body: "Not a script off the shelf. Your shop, your rules. Take orders, check stock, leave a message for the morning. Tell us what you want on the line and we build Cara around it.",
+  headingGradient: "Your shop sets the rules.",
+  body: "Choose which questions Cara can answer and which enquiries go to each department. Your team confirms availability and collection requests.",
   image: {
     src: "/how-cara-works/retail-custom.png",
     alt: "Cara configured for your shop only, built around what you want on the line.",
@@ -61,11 +61,11 @@ export const RETAIL_CUSTOM = {
 
 export const RETAIL_SETUP = {
   headingDark: "We visit your shop.",
-  headingGradient: "Live in about a week.",
+  headingGradient: "Agree a launch date.",
   body: "We visit your shop and see how it runs, then work with you to configure Cara around that. Priced per store, one dashboard per shop. Your team still picks up when they're free. Keep your number. Calls and follow-ups in your dashboard. We text management when something needs you.",
   image: {
     src: "/how-cara-works/retail-setup.png",
-    alt: "We visit your shop and configure Cara. Live in about a week.",
+    alt: "We visit your shop and configure Cara. Agree a launch date.",
   },
 } as const;
 

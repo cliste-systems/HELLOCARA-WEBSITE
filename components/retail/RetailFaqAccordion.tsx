@@ -49,7 +49,7 @@ function FaqItem({
               : { duration: 0.32, ease: FAQ_EASE }
           }
           className={cn(
-            "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border bg-[#F8F9FB] text-slate-500 transition-colors duration-300",
+            "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border bg-[#f7f7f7] text-slate-500 transition-colors duration-300",
             isOpen
               ? "border-slate-300 bg-white text-slate-700"
               : "border-slate-200/90",

@@ -150,16 +150,11 @@ const DEFAULT_DPR = () =>
 export default function Aurora(props: AuroraProps) {
   const {
     className,
-    colorStops = DEFAULT_STOPS,
-    amplitude = 1.0,
-    blend = 0.5,
-    flipDisplayVertically = false,
     dpr: dprProp,
   } = props;
 
   const propsRef = useRef(props);
-  propsRef.current = props;
-  const colorStopsKey = colorStops.join(",");
+  useEffect(() => { propsRef.current = props; }, [props]);
 
   const ctnDom = useRef<HTMLDivElement>(null);
 
@@ -185,7 +180,6 @@ export default function Aurora(props: AuroraProps) {
     canvas.style.display = "block";
     canvas.style.verticalAlign = "top";
 
-    let program: Program | undefined;
 
     function setResolutionUniform() {
       if (!program) {
@@ -213,20 +207,20 @@ export default function Aurora(props: AuroraProps) {
       delete geometry.attributes.uv;
     }
 
-    const colorStopsArray = colorStops.map((hex) => {
+    const colorStopsArray = (propsRef.current.colorStops ?? DEFAULT_STOPS).map((hex) => {
       const c = new Color(hex);
       return [c.r, c.g, c.b];
     });
 
-    program = new Program(gl, {
+    const program = new Program(gl, {
       vertex: VERT,
       fragment: FRAG,
       uniforms: {
         uTime: { value: 0 },
-        uAmplitude: { value: amplitude },
+        uAmplitude: { value: propsRef.current.amplitude ?? 1.0 },
         uColorStops: { value: colorStopsArray },
         uResolution: { value: [1, 1] },
-        uBlend: { value: blend },
+        uBlend: { value: propsRef.current.blend ?? 0.5 },
       },
     });
 
@@ -265,7 +259,7 @@ export default function Aurora(props: AuroraProps) {
       }
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
-  }, [amplitude, dprProp, colorStopsKey]);
+  }, [dprProp]);
 
   return <div ref={ctnDom} className={cn("h-full w-full", className)} />;
 }

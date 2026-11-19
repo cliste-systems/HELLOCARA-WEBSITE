@@ -96,7 +96,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0f172a",
+  themeColor: "#151515",
 };
 
 function JsonLd() {
@@ -180,7 +180,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${monaSans.variable} ${jetbrainsMono.variable} bg-white text-slate-600 antialiased selection:bg-indigo-100 selection:text-indigo-900 font-sans`}
+        className={`${inter.variable} ${monaSans.variable} ${jetbrainsMono.variable} bg-white text-slate-600 antialiased selection:bg-neutral-200 selection:text-neutral-900 font-sans`}
       >
         <JsonLd />
         <ScrollToTop />
